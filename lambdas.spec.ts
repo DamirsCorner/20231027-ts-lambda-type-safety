@@ -15,7 +15,7 @@ const books: Array<Book> = [
 describe("lambdas", () => {
   test("disallow more specific types as parameters", () => {
     // Property 'pages' is missing in type 'Book' but required in type 'PrintedBook'.
-    // const longBooks = books.filter((book: PrintedBook) => book.pages > 700);
+    const longBooks = books.filter((book: PrintedBook) => book.pages > 700);
     const longTitles = books.filter((book: Book) => book.title.length > 30);
 
     expect(longTitles.length).toBe(1);
