@@ -13,10 +13,12 @@ const books: Array<Book> = [
 ];
 
 describe("lambdas", () => {
-  test("allow more specific types as parameters", () => {
-    const longBooks = books.filter((book: PrintedBook) => book.pages > 700);
+  test("disallow more specific types as parameters", () => {
+    // Property 'pages' is missing in type 'Book' but required in type 'PrintedBook'.
+    // const longBooks = books.filter((book: PrintedBook) => book.pages > 700);
+    const longTitles = books.filter((book: Book) => book.title.length > 30);
 
-    expect(longBooks.length).toBe(0);
+    expect(longTitles.length).toBe(1);
   });
 
   test("more specific types disallowed with implicit types", () => {
